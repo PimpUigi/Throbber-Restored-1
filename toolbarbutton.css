@@ -25,6 +25,7 @@
   #navigator-throbber[cui-areatype="menu-panel"] {
 	background-color: transparent !important;
 	border-color: transparent !important;
+	box-shadow: none !important;
   }
   /*start - handle when in tabs bar*/
   toolbar[id="TabsToolbar"] > #navigator-throbber[cui-areatype="toolbar"] {
