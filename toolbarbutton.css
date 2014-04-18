@@ -42,6 +42,11 @@
 	border-color: transparent !important;
 	outline: none !important;
 	outline-offset: 0 !important;
+	
+	background-image: none !important;
+	background-position: 0% 0% !important;
+	/*background-repeat: repeat;*/ /*this is the normal value but i just left it out, the on hover value is no-repeat*/
+	background-size: auto auto !important;
   }
   /*end - make not clickable style meaning no hover and no active*/
   
