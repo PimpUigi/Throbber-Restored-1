@@ -164,10 +164,30 @@ function startup(aData, aReason) {
 	self.aData = aData; //must go first, because functions in loadIntoWindow use self.aData
 	
 	CustomizableUI.createWidget({ //must run createWidget before windowListener.register because the register function needs the button added first
-		id : 'navigator-throbber',
-		defaultArea : CustomizableUI.AREA_NAVBAR,
-		label : 'Activity Indicator',
-		overflows: false
+		id: 'navigator-throbber',
+		type: 'custom',
+		defaultArea: CustomizableUI.AREA_NAVBAR,
+		onBuild: function(aDocument) {
+			var toolbaritem = aDocument.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'toolbaritem');
+			var image = aDocument.createElementNS('http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul', 'image');
+			
+			var props = {
+				id: 'navigator-throbber',
+				title: 'Activity Indicator',
+				align: 'center',
+				pack: 'center',
+				mousethrough: 'always',
+				removable: 'true',
+				sdkstylewidget: 'true',
+				overflows: false
+			};
+			for (var p in props) {
+				toolbaritem.setAttribute(p, props[p]);
+			}
+			
+			toolbaritem.appendChild(image);
+			return toolbaritem;
+		}
 	});
 	
 	var newURIParam = {
