@@ -2,16 +2,32 @@
 
 @-moz-document url("chrome://browser/content/browser.xul") {
   #navigator-throbber {
-    list-style-image: url("chrome://throbber-restored/content/notloading_16.png");
+     list-style-image: url("chrome://throbber-restored/content/notloading_16.png");
   }
+    
+    toolbar[id="nav-bar"] * #navigator-throbber[cui-areatype="toolbar"] {
+        padding: 3px !important;
+    }
+    
+    toolbar[id="TabsToolbar"] > #navigator-throbber[cui-areatype="toolbar"] {
+        padding: 3px !important;
+    }
+    
+    toolbar:not([id="TabsToolbar"]) > #navigator-throbber{
+        margin: 0px 6px 0px 6px !important;
+    }
+    
+    toolbar[id="ctr_addon-bar"] > #navigator-throbber{
+        margin: 1px 3px 0px 3px !important;
+    }
   
   #navigator-throbber[loading] {
     list-style-image: url("chrome://throbber-restored/content/loading_16.png");
   }
 
 #navigator-throbber[cui-areatype="menu-panel"] > image {
-	width: 32px;
-	height: 32px;
+	width: 32px !important;
+	height: 32px !important;
 }
   
   /* Necessary to mimic the behavior of all other buttons, which are darker when
